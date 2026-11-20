@@ -17,8 +17,7 @@ moving into defensive cybersecurity. I am aiming at junior SOC and IAM roles.
 
 I completed the AWS Academy Cloud Foundations course (Nov 2025), through
 Fatec. I am building a Kali Linux lab in VirtualBox and studying networks, with a
-mentor-guided plan and a daily checklist. I have no security certification yet.
-Open to remote, hybrid or on-site work in Brazil, and to remote work for
+mentor-guided plan. Open to remote, hybrid or on-site work in Brazil, and to remote work for
 companies abroad.
 
 I have worked in manufacturing for about ten years, almost all of it at
@@ -39,10 +38,9 @@ My best work so far is a production planning system for Markethouse, built
 as a freelancer alongside more experienced people.
 
 Away from work I lift weights, spend time with my wife, our cats and dogs, and
-watch birds in the yard, barefoot.
+watch birds in the yard.
 
-This site is a **portfolio** and a **log** of what I am learning. It is generated
-by a small program I wrote in Rust.
+This site is a **portfolio** and a **log** of what I am learning.
 """
 
 # Short facts shown next to your name on the home page.
