@@ -137,12 +137,14 @@ points = [
 title = "AWS Academy Graduate, Cloud Foundations"
 issuer = "AWS Academy, via Fatec"
 date = "Nov 2025"
+url = "https://www.credly.com/badges/9497eac0-2ff0-484a-97ed-689e3db7321f"
 featured = true
 
 [[credentials]]
 title = "Cambridge English B2 First"
-issuer = "Cambridge English, CEFR B2"
+issuer = "Cambridge English, CEFR B2, credential B1920460"
 date = "Jan 2020"
+url = "https://www.cambridgeenglish.org/educators-organisations/accept-verify-exams/higher-education-institutions/verify-results-online/"
 featured = true
 
 [[credentials]]
@@ -178,26 +180,7 @@ label = "Engineering"
 items = ["Autodesk Inventor", "iLogic", "CAD automation"]
 
 # --- Projects ---------------------------------------------------------------
-# Leave `url` out for closed-source work.
-[[projects]]
-name = "Markethouse PPC"
-year = "2026"
-summary = "Production planning and control system for a manufacturer of supermarket displays and furniture. Shows in real time where each part is, from order to shipping. Built as freelance work with two more experienced engineers. The code is private."
-stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
-
-[[projects]]
-name = "inventor-ilogic-vb-automation"
-url = "https://github.com/gilbertordx/inventor-ilogic-vb-automation"
-year = "2025"
-summary = "Automation for Autodesk Inventor: description generation, batch processing and workflow orchestration for mechanical engineering projects."
-stack = ["VB.NET", "iLogic", "Autodesk Inventor"]
-
-[[projects]]
-name = "devsecops-pipeline"
-url = "https://github.com/gilbertordx/devsecops-pipeline"
-year = "2026"
-summary = "CI/CD study with security gates: validates and scans application and infrastructure code, provisions a temporary AWS ECR repository, pushes images, then tears everything down."
-stack = ["Terraform", "AWS ECR", "Go", "CI/CD"]
+# Ordered by importance. Leave `url` out for closed-source work.
 
 [[projects]]
 name = "tbjp-oracle"
@@ -207,11 +190,17 @@ summary = "Search and RAG interface over a scraped forum archive, with keyword a
 stack = ["Python", "LangChain", "Chroma", "Streamlit"]
 
 [[projects]]
-name = "logbook"
-url = "https://github.com/gilbertordx/logbook"
+name = "Markethouse PPC"
 year = "2026"
-summary = "Workout log that runs entirely in the browser: sets, reps, session timer, Garmin metrics, Spotify controls and backups synced to GitHub."
-stack = ["JavaScript", "ES modules", "No framework"]
+summary = "Production planning and control system for a manufacturer of supermarket displays and furniture. Shows in real time where each part is, from order to shipping. Built as freelance work with two more experienced engineers. The code is private."
+stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
+
+[[projects]]
+name = "devsecops-pipeline"
+url = "https://github.com/gilbertordx/devsecops-pipeline"
+year = "2026"
+summary = "CI/CD study with security gates: validates and scans application and infrastructure code, provisions a temporary AWS ECR repository, pushes images, then tears everything down."
+stack = ["Terraform", "AWS ECR", "Go", "CI/CD"]
 
 [[projects]]
 name = "terraform-s3-static-site"
@@ -221,6 +210,20 @@ summary = "Modular Terraform for static sites on S3 with encryption, least-privi
 stack = ["Terraform", "S3", "CloudFront", "LocalStack"]
 
 [[projects]]
+name = "inventor-ilogic-vb-automation"
+url = "https://github.com/gilbertordx/inventor-ilogic-vb-automation"
+year = "2025"
+summary = "Automation for Autodesk Inventor: description generation, batch processing and workflow orchestration for mechanical engineering projects."
+stack = ["VB.NET", "iLogic", "Autodesk Inventor"]
+
+[[projects]]
+name = "logbook"
+url = "https://github.com/gilbertordx/logbook"
+year = "2026"
+summary = "Workout log that runs entirely in the browser: sets, reps, session timer, Garmin metrics, Spotify controls and backups synced to GitHub."
+stack = ["JavaScript", "ES modules", "No framework"]
+
+[[projects]]
 name = "grdx"
 url = "https://github.com/gilbertordx/gilbertordx.github.io"
 year = "2026"
@@ -228,18 +231,18 @@ summary = "This site. A static site generator in Rust that turns Markdown and on
 stack = ["Rust", "pulldown-cmark", "GitHub Actions"]
 
 [[projects]]
-name = "rhcp-chatbot"
-url = "https://github.com/gilbertordx/rhcp-chatbot"
-year = "2026"
-summary = "Trivia chatbot with intent classification, entity recognition and SQLite full-text search behind a FastAPI server. My first project."
-stack = ["Python", "FastAPI", "SQLite FTS"]
-
-[[projects]]
 name = "tbjp-scraper"
 url = "https://github.com/gilbertordx/tbjp-scraper"
 year = "2025"
 summary = "Scrapes forum replies into a local SQLite database. The data source that tbjp-oracle grew out of."
 stack = ["Python", "SQLite"]
+
+[[projects]]
+name = "rhcp-chatbot"
+url = "https://github.com/gilbertordx/rhcp-chatbot"
+year = "2026"
+summary = "Trivia chatbot with intent classification, entity recognition and SQLite full-text search behind a FastAPI server. My first project."
+stack = ["Python", "FastAPI", "SQLite FTS"]
 
 [[projects]]
 name = "log"

@@ -304,13 +304,14 @@ fn post_groups(posts: &[&Post]) -> String {
 }
 
 fn credential_row(c: &Credential) -> String {
-    let title = if c.url.is_empty() {
-        esc(&c.title)
+    let view = if c.url.is_empty() {
+        String::new()
     } else {
-        format!(r#"<a href="{}" rel="noopener">{}</a>"#, esc(&c.url), esc(&c.title))
+        format!(r#"<a class="cred-view" href="{}" rel="noopener" target="_blank">view credential &#9656;</a>"#, esc(&c.url))
     };
     format!(
-        r#"<li><strong>{title}</strong><span>{} // {}</span></li>"#,
+        r#"<li><strong>{}</strong><span>{} // {}</span>{view}</li>"#,
+        esc(&c.title),
         esc(&c.issuer),
         esc(&c.date)
     )
@@ -571,10 +572,11 @@ fn build() -> Result<()> {
             .collect();
         for c in &site.credentials {
             items += &format!(
-                r#"<li><span class="job-period">{}</span><div><strong>{}</strong><span class="job-org">{}</span></div></li>"#,
+                r#"<li><span class="job-period">{}</span><div><strong>{}</strong><span class="job-org">{}</span>{}</div></li>"#,
                 esc(&c.date),
                 esc(&c.title),
-                esc(&c.issuer)
+                esc(&c.issuer),
+                if c.url.is_empty() { String::new() } else { format!(r#"<a class="cred-view" href="{}" rel="noopener" target="_blank">view credential &#9656;</a>"#, esc(&c.url)) }
             );
         }
         body += &panel("Education", "", &format!(r#"<ul class="jobs">{items}</ul>"#));

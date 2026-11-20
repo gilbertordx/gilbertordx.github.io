@@ -304,5 +304,8 @@ a.card:hover h3 { color: var(--blue); }
 .creds li::before { content: "[ok]"; color: var(--yellow); }
 .creds strong { font-weight: 700; }
 .creds span { color: var(--dim); }
-.creds a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
-.creds a:hover { color: var(--blue); }
+
+
+.creds .cred-view { color: var(--blue); }
+.creds .cred-view:hover { color: var(--yellow); }
+.jobs .cred-view { font-size: 0.9em; }
