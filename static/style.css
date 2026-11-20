@@ -295,3 +295,14 @@ a.card:hover h3 { color: var(--blue); }
 .actions { gap: 20px; }
 #invert { border: 0; padding: 0; }
 .prose pre, .prose code { border-color: transparent; }
+
+/* ---------- home: intro and credentials ---------- */
+.intro p { margin: 0 0 0.8em; }
+.intro p:last-child { margin: 0; }
+.creds { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
+.creds li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.creds li::before { content: "[ok]"; color: var(--yellow); }
+.creds strong { font-weight: 700; }
+.creds span { color: var(--dim); }
+.creds a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.creds a:hover { color: var(--blue); }

@@ -8,7 +8,18 @@ location = "Bauru, SP, Brazil"
 tagline = "Ten years in manufacturing, building CAD automation and a custom ERP. Now moving into defensive cybersecurity, aiming at junior SOC and IAM roles."
 description = "Portfolio and log of Gilberto Barbaresco: defensive cybersecurity (SOC and IAM), manufacturing software background, projects and study notes."
 base_url = "https://gilbertordx.github.io"
-certifications = ["AWS Academy Graduate, Cloud Foundations (course training badge, Nov 2025)", "B2 First, Cambridge English, CEFR B2 (Jan 2020)", "Master in English, CNA+ (Dec 2019)"]
+
+# Short bio shown on the home page. Markdown. The full text is on /about/
+intro = """
+I spent ten years in manufacturing, almost all of it at Markethouse, a company
+that builds displays and furniture for supermarkets. I started on the shop floor
+at 18, moved into mechanical design, built the company's CAD infrastructure and
+wrote the automation that cut documentation time per unit by 90%.
+
+Now I am moving into defensive cybersecurity, aiming at junior SOC and IAM roles.
+I am building a Kali Linux lab in VirtualBox and studying networks and AWS IAM,
+with a mentor-guided plan. Open to remote work in Brazil and abroad.
+"""
 
 # Markdown. Shown on /about/
 about = """
@@ -59,14 +70,6 @@ value = "Senior Mechanical Designer, Markethouse"
 [[facts]]
 label = "Education"
 value = "Database Technology, Fatec Bauru"
-
-[[facts]]
-label = "Credential"
-value = "AWS Academy Cloud Foundations (course badge)"
-
-[[facts]]
-label = "English"
-value = "Cambridge B2 First"
 
 [[links]]
 label = "GitHub"
@@ -127,6 +130,25 @@ location = "Bauru, SP, Brazil"
 points = [
   "Started on the shop floor at 18, building by hand the products I would later design.",
 ]
+
+# --- Credentials ------------------------------------------------------------
+# featured = true shows it on the home page. Add `url` to link to the badge.
+[[credentials]]
+title = "AWS Academy Graduate, Cloud Foundations"
+issuer = "AWS Academy, via Fatec"
+date = "Nov 2025"
+featured = true
+
+[[credentials]]
+title = "Cambridge English B2 First"
+issuer = "Cambridge English, CEFR B2"
+date = "Jan 2020"
+featured = true
+
+[[credentials]]
+title = "Master in English"
+issuer = "CNA+"
+date = "Dec 2019"
 
 # --- Education --------------------------------------------------------------
 [[education]]
@@ -218,3 +240,10 @@ url = "https://github.com/gilbertordx/tbjp-scraper"
 year = "2025"
 summary = "Scrapes forum replies into a local SQLite database. The data source that tbjp-oracle grew out of."
 stack = ["Python", "SQLite"]
+
+[[projects]]
+name = "log"
+url = "https://github.com/gilbertordx/log"
+year = "2026"
+summary = "Study of the Antigravity CLI."
+stack = ["Python"]

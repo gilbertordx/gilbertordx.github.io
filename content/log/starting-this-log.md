@@ -1,4 +1,5 @@
 +++
+draft = true
 title = "Starting this log"
 date = "2026-11-16"
 tags = ["meta", "rust"]

@@ -1,4 +1,5 @@
 +++
+draft = true
 title = "The long way here"
 date = "2026-11-16"
 tags = ["personal", "career"]

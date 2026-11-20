@@ -32,6 +32,9 @@ struct Site {
     description: String,
     base_url: String,
     about: String,
+    /// Short bio for the home page (Markdown).
+    #[serde(default)]
+    intro: String,
     #[serde(default)]
     facts: Vec<Fact>,
     #[serde(default)]
@@ -41,7 +44,7 @@ struct Site {
     #[serde(default)]
     education: Vec<School>,
     #[serde(default)]
-    certifications: Vec<String>,
+    credentials: Vec<Credential>,
     #[serde(default)]
     skills: Vec<SkillGroup>,
     #[serde(default)]
@@ -76,6 +79,19 @@ struct School {
     school: String,
     degree: String,
     period: String,
+}
+
+#[derive(Deserialize)]
+struct Credential {
+    title: String,
+    issuer: String,
+    date: String,
+    /// Optional link to the badge or certificate.
+    #[serde(default)]
+    url: String,
+    /// Shown on the home page.
+    #[serde(default)]
+    featured: bool,
 }
 
 #[derive(Deserialize)]
@@ -287,6 +303,19 @@ fn post_groups(posts: &[&Post]) -> String {
     out
 }
 
+fn credential_row(c: &Credential) -> String {
+    let title = if c.url.is_empty() {
+        esc(&c.title)
+    } else {
+        format!(r#"<a href="{}" rel="noopener">{}</a>"#, esc(&c.url), esc(&c.title))
+    };
+    format!(
+        r#"<li><strong>{title}</strong><span>{} // {}</span></li>"#,
+        esc(&c.issuer),
+        esc(&c.date)
+    )
+}
+
 fn project_card(p: &Project, idx: usize) -> String {
     let stack: String = p.stack.iter().map(|s| format!("<li>{}</li>", esc(s))).collect();
     let (open, close, go) = if p.url.is_empty() {
@@ -399,8 +428,10 @@ fn build() -> Result<()> {
         .iter()
         .map(|f| format!("<div><dt>{}</dt><dd>{}</dd></div>", esc(&f.label), esc(&f.value)))
         .collect();
+    let log_button =
+        if posts.is_empty() { "" } else { r#"<a class="btn" href="/log/">Read the log</a>"# };
     let hero = format!(
-        r#"<div class="hero"><div class="hero-main"><p class="kicker">{role} // {location}</p><h1 class="glitch" data-text="{name}">{name}</h1><p class="lead">{tagline}</p><p class="actions"><a class="btn" href="/log/">Read the log</a><a class="btn ghost" href="/projects/">Projects</a></p></div><dl class="stats">{stats}</dl></div>"#,
+        r#"<div class="hero"><div class="hero-main"><p class="kicker">{role} // {location}</p><h1 class="glitch" data-text="{name}">{name}</h1><p class="lead">{tagline}</p><p class="actions">{log_button}<a class="btn ghost" href="/about/">About</a></p></div><dl class="stats">{stats}</dl></div>"#,
         role = esc(&site.role),
         location = esc(&site.location),
         name = esc(&site.name),
@@ -408,16 +439,28 @@ fn build() -> Result<()> {
     );
     let recent: String = posts.iter().take(5).map(post_row).collect();
     let cards: String =
-        site.projects.iter().take(4).enumerate().map(|(i, p)| project_card(p, i + 1)).collect();
-    let body = format!(
-        r#"{}{}<div class="section-head"><h2>Selected projects</h2><a href="/projects/">All projects &#9656;</a></div><div class="cards">{cards}</div>"#,
-        panel("Profile", "hero-panel", &hero),
-        panel(
+        site.projects.iter().enumerate().map(|(i, p)| project_card(p, i + 1)).collect();
+    let featured: String =
+        site.credentials.iter().filter(|c| c.featured).map(credential_row).collect();
+    let mut body = panel("Profile", "hero-panel", &hero);
+    if !site.intro.is_empty() {
+        body += &format!(r#"<div class="prose intro">{}<p><a href="/about/">More about me &#9656;</a></p></div>"#, markdown(&site.intro));
+    }
+    if !featured.is_empty() {
+        body += &format!(
+            r#"<div class="section-head"><h2>Credentials</h2></div><ul class="creds">{featured}</ul>"#
+        );
+    }
+    body += &format!(
+        r#"<div class="section-head"><h2>Tools and experiments</h2></div><div class="cards">{cards}</div>"#
+    );
+    if !posts.is_empty() {
+        body += &panel(
             "Recent log entries",
             "",
-            &format!(r#"<ul class="entries">{recent}</ul><p class="more"><a href="/log/">All log entries &#9656;</a></p>"#)
-        ),
-    );
+            &format!(r#"<ul class="entries">{recent}</ul><p class="more"><a href="/log/">All log entries &#9656;</a></p>"#),
+        );
+    }
     write("index.html", &page(&site, "", &site.description, "", "/", &body))?;
 
     // Log index
@@ -431,10 +474,14 @@ fn build() -> Result<()> {
         .iter()
         .map(|(t, ps)| format!(r#"<a class="tag" href="/tags/{0}/">#{0} <small>{1}</small></a>"#, esc(t), ps.len()))
         .collect();
+    let listing = if posts.is_empty() {
+        r#"<p class="lead">No entries yet.</p>"#.to_string()
+    } else {
+        format!(r#"<div class="topics"><span class="kicker">Topics</span>{topics}</div>{}"#, post_groups(&all))
+    };
     let body = format!(
-        r#"{}<div class="topics"><span class="kicker">Topics</span>{topics}</div>{}"#,
+        "{}{listing}",
         page_head("All entries", "Log", "Notes on what I am studying and building, including what went wrong. Newest first."),
-        post_groups(&all),
     );
     write("log/index.html", &page(&site, "Log", "Running log of studies and builds.", "log", "/log/", &body))?;
 
@@ -486,9 +533,9 @@ fn build() -> Result<()> {
         site.projects.iter().enumerate().map(|(i, p)| project_card(p, i + 1)).collect();
     let body = format!(
         r#"{}<div class="cards">{cards}</div>"#,
-        page_head("Work and studies", "Projects", "Things I have built and studied. Most link to their source code."),
+        page_head("Work and studies", "Tools and experiments", "Things I have built and studied. Most link to their source code."),
     );
-    write("projects/index.html", &page(&site, "Projects", "Projects and studies.", "projects", "/projects/", &body))?;
+    write("projects/index.html", &page(&site, "Tools and experiments", "Tools and experiments.", "projects", "/projects/", &body))?;
 
     // About
     let mut body = page_head(&format!("{} // {}", site.role, site.location), "About", &site.tagline);
@@ -509,7 +556,7 @@ fn build() -> Result<()> {
             .collect();
         body += &panel("Experience", "", &format!(r#"<ul class="jobs">{jobs}</ul>"#));
     }
-    if !site.education.is_empty() || !site.certifications.is_empty() {
+    if !site.education.is_empty() || !site.credentials.is_empty() {
         let mut items: String = site
             .education
             .iter()
@@ -522,10 +569,12 @@ fn build() -> Result<()> {
                 )
             })
             .collect();
-        for c in &site.certifications {
+        for c in &site.credentials {
             items += &format!(
-                r#"<li><span class="job-period">Certification</span><div><strong>{}</strong></div></li>"#,
-                esc(c)
+                r#"<li><span class="job-period">{}</span><div><strong>{}</strong><span class="job-org">{}</span></div></li>"#,
+                esc(&c.date),
+                esc(&c.title),
+                esc(&c.issuer)
             );
         }
         body += &panel("Education", "", &format!(r#"<ul class="jobs">{items}</ul>"#));
