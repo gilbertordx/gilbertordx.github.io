@@ -341,17 +341,16 @@ fn page(site: &Site, title: &str, desc: &str, active: &str, path: &str, body: &s
 <link rel="alternate" type="application/rss+xml" title="{brand} log" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script>try{{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
 <body>
 <div class="scan" aria-hidden="true"></div>
-<div class="rail" aria-hidden="true">{rail_name} // {role} // Portfolio &amp; Log</div>
 <header class="top">
 <a class="brand" href="/">{brand}</a>
 <nav aria-label="Main">{nav}</nav>
-<button id="invert" type="button" title="Switch between dark and light">Invert</button>
+<button id="invert" type="button" title="Switch between dark and light">theme</button>
 </header>
 <main>
 {body}
@@ -368,8 +367,6 @@ fn page(site: &Site, title: &str, desc: &str, active: &str, path: &str, body: &s
         desc = esc(desc),
         base = site.base_url.trim_end_matches('/'),
         brand = esc(&site.brand),
-        rail_name = esc(&site.name),
-        role = esc(&site.role),
         name = esc(&site.name),
         build = Date::today().dotted(),
     )
