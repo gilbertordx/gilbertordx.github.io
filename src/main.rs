@@ -223,7 +223,8 @@ fn load_posts() -> Result<Vec<Post>> {
             continue;
         }
         let name = path.display().to_string();
-        let raw = fs::read_to_string(&path)?;
+        // Windows checkouts may have CRLF line endings; normalise so the "\n+++" split works.
+        let raw = fs::read_to_string(&path)?.replace("\r\n", "\n");
         let rest = raw.strip_prefix("+++").ok_or(format!("{name}: missing +++ front matter"))?;
         let (front, body) =
             rest.split_once("\n+++").ok_or(format!("{name}: unterminated front matter"))?;
