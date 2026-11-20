@@ -26,7 +26,7 @@ Markethouse, a company that builds displays and furniture for supermarkets. I
 started on the shop floor at 18 as a carpenter's assistant and moved up into
 mechanical design. I built the company's CAD infrastructure from scratch and
 wrote the automation that cut documentation time per unit by 90%. I currently
-lead a team of PCP (production planning) and intern mechanical engineers.
+lead a team of production planning and control (PPC) and intern mechanical engineers.
 
 I grew up with a computer and no money for games or software. I read forums,
 experimented with HTML, and liked taking things apart to see how they work. In
@@ -96,7 +96,7 @@ points = [
   "Built an internal iLogic/VBA automation engine that cut per-unit processing time by 90% (2 minutes to 12 seconds) and produces ERP-ready bills of materials, reducing manual entry errors.",
   "Trained 2 operators from zero drafting experience to full production autonomy in 14 months. Both were later promoted into Sales and Estimating.",
   "Full design ownership: component selection, fit and function, structural analysis.",
-  "Lead a team of PCP (production planning) and intern mechanical engineers.",
+  "Lead a team of production planning and control (PPC) and intern mechanical engineers.",
 ]
 
 [[experience]]
@@ -159,7 +159,7 @@ items = ["Autodesk Inventor", "iLogic", "CAD automation"]
 # --- Projects ---------------------------------------------------------------
 # Leave `url` out for closed-source work.
 [[projects]]
-name = "Markethouse PCP"
+name = "Markethouse PPC"
 year = "2026"
 summary = "Production planning and control system for a manufacturer of supermarket displays and furniture. Shows in real time where each part is, from order to shipping. Built as freelance work with two more experienced engineers. The code is private."
 stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
