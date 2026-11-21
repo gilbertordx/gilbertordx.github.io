@@ -1,4 +1,4 @@
-//! grdx: reads `site.toml`, `content/log/*.md` and `static/`, writes `dist/`.
+//! security-student: reads `site.toml`, `content/log/*.md` and `static/`, writes `dist/`.
 //!
 //!   cargo run            build the site
 //!   cargo run -- serve   build, then serve dist/ on http://127.0.0.1:4321
@@ -25,7 +25,7 @@ const MONTHS: [&str; 12] = [
 #[derive(Deserialize)]
 struct Site {
     brand: String,
-    /// Browser-tab title of the home page; falls back to "brand // name".
+    /// Browser-tab title of the home page; falls back to the name.
     #[serde(default)]
     home_title: String,
     name: String,
@@ -365,9 +365,9 @@ fn page(site: &Site, title: &str, desc: &str, active: &str, path: &str, body: &s
         })
         .collect();
     let full_title = if title.is_empty() {
-        if site.home_title.is_empty() { format!("{} // {}", site.brand, site.name) } else { site.home_title.clone() }
+        if site.home_title.is_empty() { site.name.clone() } else { site.home_title.clone() }
     } else {
-        format!("{} // {}", title, site.brand)
+        title.to_string()
     };
     let links: String = site
         .links
@@ -392,7 +392,7 @@ fn page(site: &Site, title: &str, desc: &str, active: &str, path: &str, body: &s
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{base}/og.png">
 <link rel="canonical" href="{base}{path}">
-<link rel="alternate" type="application/rss+xml" title="{brand} log" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="{name} log" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -647,8 +647,8 @@ fn build() -> Result<()> {
     write(
         "feed.xml",
         &format!(
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\"><channel><title>{} // log</title><link>{base}/</link><description>{}</description>\n{items}</channel></rss>\n",
-            esc(&site.brand),
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\"><channel><title>{} log</title><link>{base}/</link><description>{}</description>\n{items}</channel></rss>\n",
+            esc(&site.name),
             esc(&site.description),
         ),
     )?;

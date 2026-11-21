@@ -1,5 +1,5 @@
 [package]
-name = "grdx"
+name = "security-student"
 version = "0.1.0"
 edition = "2021"
 description = "Static site generator behind gilbertordx.github.io: portfolio + log"

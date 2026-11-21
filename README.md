@@ -1,4 +1,4 @@
-# grdx
+# security-student
 
 Portfolio and log. A small static site generator in Rust: no framework, three dependencies.
 

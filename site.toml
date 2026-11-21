@@ -1,8 +1,9 @@
 # Everything the site knows about you lives in this file.
 # Edit, then run `cargo run` to rebuild into ./dist
 
-brand = "GRDX"
-home_title = "GRDX // security student"
+# Text of the home link in the top bar.
+brand = "gilberto barbaresco"
+home_title = "security student"
 name = "Gilberto Barbaresco"
 role = "Defensive Cybersecurity (SOC & IAM)"
 location = "Bauru, SP, Brazil"
