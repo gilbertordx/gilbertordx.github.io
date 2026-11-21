@@ -110,7 +110,8 @@ a.panel:hover .panel-label span:first-child { color: var(--cyan); }
 /* ----------------------------------------------------------------- hero */
 
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 20px; align-items: end; }
-.hero h1 { font-size: clamp(1.6rem, 5vw, 2.25rem); }
+.hero h1 { font-size: clamp(1.6rem, 5vw, 2.25rem); text-transform: lowercase; }
+.stack .remaster { color: var(--yellow); }
 .stats { margin: 0; padding: 8px 12px; background: var(--panel); border: 1px solid var(--line); font-size: 0.9em; }
 .stats div { display: flex; justify-content: space-between; gap: 12px; padding: 1px 0; }
 .stats dt { color: var(--blue); }
