@@ -11,12 +11,16 @@ base_url = "https://gilbertordx.github.io"
 
 # Short bio shown on the home page. Markdown. The full text is on /about/
 intro = """
-i started on the shop floor of markethouse at 18, moved into estimator and 2d/3d design. the spreadsheets and designs i first made there are still used today in quotes and production orders, and today i hold authority over the entire workflow of all parts, from development and mechanical design to shipping. those are my main accomplishments. now im studying security as my goal to work into the it industry. ill log along here.
+i started on the shop floor of markethouse at 18, moved into estimator and 2d/3d design. the spreadsheets and designs i first made there are still used today in quotes and production orders, and today i hold authority over the entire workflow of all parts, from development and mechanical design to shipping. those are my main accomplishments. <span class="red">now im studying security</span> as my goal to work into the it industry. ill log along here.
+
+i am building a kali linux lab in virtualbox and studying networks and aws iam, with a mentor-guided plan. <span class="red">open to work anywhere, anytime.</span>
 """
 
 # Markdown. Shown on /about/
 about = """
-i started on the shop floor of markethouse at 18, moved into estimator and 2d/3d design. the spreadsheets and designs i first made there are still used today in quotes and production orders, and today i hold authority over the entire workflow of all parts, from development and mechanical design to shipping. those are my main accomplishments. now im studying security as my goal to work into the it industry. ill log along here.
+i started on the shop floor of markethouse at 18, moved into estimator and 2d/3d design. the spreadsheets and designs i first made there are still used today in quotes and production orders, and today i hold authority over the entire workflow of all parts, from development and mechanical design to shipping. those are my main accomplishments. <span class="red">now im studying security</span> as my goal to work into the it industry. ill log along here.
+
+i am building a kali linux lab in virtualbox and studying networks and aws iam, with a mentor-guided plan. <span class="red">open to work anywhere, anytime.</span>
 
 I grew up with a computer and no money for games or software. I read forums,
 experimented with HTML, and liked taking things apart to see how they work. In
