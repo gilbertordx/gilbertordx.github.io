@@ -230,8 +230,8 @@ summary = "Rust rewrites of tbjp-oracle, logbook and rhcp-chatbot, each checked 
 stack = ["Rust", "axum", "Leptos", "WebAssembly"]
 
 [[projects]]
-name = "launchpad"
-url = "https://github.com/gilbertordx/launchpad"
+name = "sietch"
+url = "https://github.com/gilbertordx/sietch"
 year = "2026"
 summary = "Terminal menu that starts and opens my projects: pick one with the arrow keys or the mouse and it opens in the browser. Manages processes, readiness checks and updates from GitHub."
 stack = ["Rust", "ratatui"]
