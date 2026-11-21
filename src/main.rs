@@ -25,6 +25,9 @@ const MONTHS: [&str; 12] = [
 #[derive(Deserialize)]
 struct Site {
     brand: String,
+    /// Browser-tab title of the home page; falls back to "brand // name".
+    #[serde(default)]
+    home_title: String,
     name: String,
     role: String,
     location: String,
@@ -362,7 +365,7 @@ fn page(site: &Site, title: &str, desc: &str, active: &str, path: &str, body: &s
         })
         .collect();
     let full_title = if title.is_empty() {
-        format!("{} // {}", site.brand, site.name)
+        if site.home_title.is_empty() { format!("{} // {}", site.brand, site.name) } else { site.home_title.clone() }
     } else {
         format!("{} // {}", title, site.brand)
     };

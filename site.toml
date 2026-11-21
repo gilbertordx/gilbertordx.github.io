@@ -2,6 +2,7 @@
 # Edit, then run `cargo run` to rebuild into ./dist
 
 brand = "GRDX"
+home_title = "GRDX // security student"
 name = "Gilberto Barbaresco"
 role = "Defensive Cybersecurity (SOC & IAM)"
 location = "Bauru, SP, Brazil"
@@ -183,21 +184,21 @@ stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
 name = "devsecops-pipeline"
 url = "https://github.com/gilbertordx/devsecops-pipeline"
 year = "2026"
-summary = "A simple CI/CD study with security checks on a temporary AWS setup."
+summary = "My earliest experiment with cloud tools."
 stack = ["Terraform", "AWS ECR", "Go", "CI/CD"]
 
 [[projects]]
 name = "terraform-s3-static-site"
 url = "https://github.com/gilbertordx/terraform-s3-static-site"
 year = "2026"
-summary = "Modular Terraform for static sites on S3 with encryption, least-privilege policies, optional CloudFront, and a LocalStack environment for local testing."
+summary = "Another early experiment with cloud tools."
 stack = ["Terraform", "S3", "CloudFront", "LocalStack"]
 
 [[projects]]
 name = "logbook"
 url = "https://github.com/gilbertordx/logbook"
 year = "2026"
-summary = "Workout log that runs entirely in the browser: sets, reps, session timer, Garmin metrics, Spotify controls and backups synced to GitHub."
+summary = "Early study of a workout tracker, with integrations for Garmin, Spotify and calendar."
 stack = ["JavaScript", "ES modules", "No framework"]
 
 [[projects]]
@@ -222,10 +223,10 @@ summary = "A GitHub-CLI-style terminal interface: see all my apps in one place a
 stack = ["Rust", "ratatui"]
 
 [[projects]]
-name = "grdx"
+name = "security-student"
 url = "https://github.com/gilbertordx/gilbertordx.github.io"
 year = "2026"
-summary = "Portfolio and log. A place to document my learning along the way and to give my work exposure."
+summary = "Portfolio and logs."
 stack = ["Rust", "pulldown-cmark", "GitHub Actions"]
 
 [[projects]]
