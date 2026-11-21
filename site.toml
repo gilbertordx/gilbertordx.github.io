@@ -179,7 +179,7 @@ name = "tbjp-oracle"
 url = "https://github.com/gilbertordx/tbjp-oracle"
 year = "2026"
 summary = "A search interface that I built after discovering a forum breach."
-stack = ["Rust"]
+stack = ["Rust", "axum", "Python"]
 
 [[projects]]
 name = "Markethouse PPC"
