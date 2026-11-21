@@ -1,16 +1,16 @@
-/* GRDX — Kali-style terminal. Dark charcoal, Kali blue, mono type.
-   Cyberpunk 2077 shows up only as small touches: yellow cursor/selection,
-   one cyan hover edge, cut corners on panels. */
+/* GRDX — mono type, plain text. Dark theme is pitch black and colorless,
+   like a .txt file; the light theme keeps the blue accents. */
 
 :root {
-  --bg: #0d1117;
-  --panel: #12171f;
-  --fg: #d5dbe5;
-  --dim: #7f8a9c;
-  --line: #232b38;
-  --blue: #367bf0;      /* Kali */
-  --yellow: #fcee0a;    /* CP2077 */
-  --cyan: #00e5ff;      /* CP2077, sparingly */
+  /* dark: pitch black, plain .txt look: no accent colors */
+  --bg: #000000;
+  --panel: #000000;
+  --fg: #e0e0e0;
+  --dim: #8c8c8c;
+  --line: #262626;
+  --blue: #ffffff;
+  --yellow: #ffffff;
+  --cyan: #ffffff;
   --cut: 8px;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
@@ -29,6 +29,8 @@ body {
 ::selection { background: var(--yellow); color: #000; }
 a { color: var(--blue); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+/* dark has no link color, so links are underlined instead */
+:root:not([data-theme="light"]) .prose a, :root:not([data-theme="light"]) .credit a { text-decoration: underline; text-underline-offset: 3px; }
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
 /* faint scanlines — barely there */
@@ -121,7 +123,7 @@ a.panel:hover .panel-label span:first-child { color: var(--cyan); }
 
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0 0; }
 .btn {
-  display: inline-block; padding: 3px 12px; font-weight: 500; color: #fff; text-decoration: none;
+  display: inline-block; padding: 3px 12px; font-weight: 500; color: var(--bg); text-decoration: none;
   background: var(--blue); border: 1px solid var(--blue);
 }
 .btn::before { content: "$ "; opacity: 0.7; }
