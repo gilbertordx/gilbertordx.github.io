@@ -368,6 +368,11 @@ fn page(site: &Site, title: &str, desc: &str, active: &str, path: &str, body: &s
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{base}{path}">
+<meta property="og:image" content="{base}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{base}/og.png">
 <link rel="canonical" href="{base}{path}">
 <link rel="alternate" type="application/rss+xml" title="{brand} log" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
