@@ -110,6 +110,9 @@ struct Project {
     summary: String,
     #[serde(default)]
     stack: Vec<String>,
+    /// Set to mark a Rust remaster of this project, e.g. "planned" or "in progress".
+    #[serde(default)]
+    remaster: String,
 }
 
 #[derive(Deserialize)]
@@ -308,7 +311,7 @@ fn credential_row(c: &Credential) -> String {
     let view = if c.url.is_empty() {
         String::new()
     } else {
-        format!(r#"<a class="cred-view" href="{}" rel="noopener" target="_blank">view credential &#9656;</a>"#, esc(&c.url))
+        format!(r#"<a class="cred-view" href="{}" rel="noopener" target="_blank">view certificate &#9656;</a>"#, esc(&c.url))
     };
     format!(
         r#"<li><strong>{}</strong><span>{} // {}</span>{view}</li>"#,
@@ -319,7 +322,10 @@ fn credential_row(c: &Credential) -> String {
 }
 
 fn project_card(p: &Project, idx: usize) -> String {
-    let stack: String = p.stack.iter().map(|s| format!("<li>{}</li>", esc(s))).collect();
+    let mut stack: String = p.stack.iter().map(|s| format!("<li>{}</li>", esc(s))).collect();
+    if !p.remaster.is_empty() {
+        stack += &format!(r#"<li class="remaster">Rust remaster: {}</li>"#, esc(&p.remaster));
+    }
     let (open, close, go) = if p.url.is_empty() {
         (r#"<div class="panel card">"#.to_string(), "</div>", "Closed source")
     } else {
@@ -455,11 +461,11 @@ fn build() -> Result<()> {
     }
     if !featured.is_empty() {
         body += &format!(
-            r#"<div class="section-head"><h2>Credentials</h2></div><ul class="creds">{featured}</ul>"#
+            r#"<div class="section-head"><h2>Certificates</h2></div><ul class="creds">{featured}</ul>"#
         );
     }
     body += &format!(
-        r#"<div class="section-head"><h2>Tools and experiments</h2></div><div class="cards">{cards}</div>"#
+        r#"<div class="section-head"><h2>Tools</h2></div><div class="cards">{cards}</div>"#
     );
     if !posts.is_empty() {
         body += &panel(
@@ -540,9 +546,9 @@ fn build() -> Result<()> {
         site.projects.iter().enumerate().map(|(i, p)| project_card(p, i + 1)).collect();
     let body = format!(
         r#"{}<div class="cards">{cards}</div>"#,
-        page_head("Work and studies", "Tools and experiments", "Things I have built and studied. Most link to their source code."),
+        page_head("Work and studies", "Tools", "Things I have built and studied. Most link to their source code."),
     );
-    write("projects/index.html", &page(&site, "Tools and experiments", "Tools and experiments.", "projects", "/projects/", &body))?;
+    write("projects/index.html", &page(&site, "Tools", "Tools.", "projects", "/projects/", &body))?;
 
     // About
     let mut body = page_head(&format!("{} // {}", site.role, site.location), "About", &site.tagline);
@@ -582,7 +588,7 @@ fn build() -> Result<()> {
                 esc(&c.date),
                 esc(&c.title),
                 esc(&c.issuer),
-                if c.url.is_empty() { String::new() } else { format!(r#"<a class="cred-view" href="{}" rel="noopener" target="_blank">view credential &#9656;</a>"#, esc(&c.url)) }
+                if c.url.is_empty() { String::new() } else { format!(r#"<a class="cred-view" href="{}" rel="noopener" target="_blank">view certificate &#9656;</a>"#, esc(&c.url)) }
             );
         }
         body += &panel("Education", "", &format!(r#"<ul class="jobs">{items}</ul>"#));

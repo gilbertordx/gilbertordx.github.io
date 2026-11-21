@@ -5,20 +5,13 @@ brand = "GRDX"
 name = "Gilberto Barbaresco"
 role = "Defensive Cybersecurity (SOC & IAM)"
 location = "Bauru, SP, Brazil"
-tagline = "Ten years in manufacturing, building CAD automation and a custom ERP. Now moving into defensive cybersecurity, aiming at junior SOC and IAM roles."
+tagline = "10+ years in manufacturing, curious about tech. I built CAD automation and a custom ERP for Markethouse over those years. I have begun deep studies in defensive cybersecurity, aiming at junior SOC and IAM roles."
 description = "Portfolio and log of Gilberto Barbaresco: defensive cybersecurity (SOC and IAM), manufacturing software background, projects and study notes."
 base_url = "https://gilbertordx.github.io"
 
 # Short bio shown on the home page. Markdown. The full text is on /about/
 intro = """
-I spent ten years in manufacturing, almost all of it at Markethouse, a company
-that builds displays and furniture for supermarkets. I started on the shop floor
-at 18, moved into mechanical design, built the company's CAD infrastructure and
-wrote the automation that cut documentation time per unit by 90%.
-
-Now I am moving into defensive cybersecurity, aiming at junior SOC and IAM roles.
-I am building a Kali Linux lab in VirtualBox and studying networks and AWS IAM,
-with a mentor-guided plan. Open to work anywhere.
+i started on the shop floor of markethouse at 18, moved into "orcamentista" and design 2d/3d design, my initial work there with spreadsheets is to this day used in "orcamentos" and "ordens de producao", and today i held authority over the mechanical design of all parts. those are my main accomplishments. now im studying security as my goal to work into the it industry. ill log along here.
 """
 
 # Markdown. Shown on /about/
@@ -141,7 +134,7 @@ featured = true
 
 [[credentials]]
 title = "Cambridge English B2 First"
-issuer = "Cambridge English, CEFR B2, credential B1920460"
+issuer = "Cambridge English, CEFR B2, ID B1920460"
 date = "Jan 2020"
 url = "https://www.cambridgeenglish.org/educators-organisations/accept-verify-exams/higher-education-institutions/verify-results-online/"
 featured = true
@@ -182,23 +175,31 @@ items = ["Autodesk Inventor", "iLogic", "CAD automation"]
 # Ordered by importance. Leave `url` out for closed-source work.
 
 [[projects]]
+name = "launchpad"
+year = "2026"
+summary = "A control system over my repos, to start and test them all from one place on my PC."
+stack = ["Rust"]
+
+[[projects]]
 name = "tbjp-oracle"
 url = "https://github.com/gilbertordx/tbjp-oracle"
 year = "2026"
-summary = "Search and RAG interface over a scraped forum archive, with keyword and semantic retrieval and an experimental local-model mode."
-stack = ["Python", "LangChain", "Chroma", "Streamlit"]
+summary = "A search interface that I built after discovering a forum breach."
+stack = ["Python", "LangChain", "Chroma"]
+remaster = "planned"
 
 [[projects]]
 name = "Markethouse PPC"
 year = "2026"
-summary = "Production planning and control system for a manufacturer of supermarket displays and furniture. Shows in real time where each part is, from order to shipping. Built as freelance work with two more experienced engineers. The code is private."
+summary = "Production planning and control system for manufactured mechanical parts. The goal is a lean production method with just-in-time and andon, concepts that originated in the Toyota Production System. The code is private."
 stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
+remaster = "planned"
 
 [[projects]]
 name = "devsecops-pipeline"
 url = "https://github.com/gilbertordx/devsecops-pipeline"
 year = "2026"
-summary = "CI/CD study with security gates: validates and scans application and infrastructure code, provisions a temporary AWS ECR repository, pushes images, then tears everything down."
+summary = "A simple CI/CD study with security checks on a temporary AWS setup."
 stack = ["Terraform", "AWS ECR", "Go", "CI/CD"]
 
 [[projects]]
@@ -214,6 +215,7 @@ url = "https://github.com/gilbertordx/inventor-ilogic-vb-automation"
 year = "2025"
 summary = "Automation for Autodesk Inventor: description generation, batch processing and workflow orchestration for mechanical engineering projects."
 stack = ["VB.NET", "iLogic", "Autodesk Inventor"]
+remaster = "planned"
 
 [[projects]]
 name = "logbook"
