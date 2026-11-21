@@ -180,7 +180,6 @@ url = "https://github.com/gilbertordx/tbjp-oracle"
 year = "2026"
 summary = "A search interface that I built after discovering a forum breach."
 stack = ["Python", "LangChain", "Chroma"]
-remaster = "planned"
 
 [[projects]]
 name = "Markethouse PPC"
