@@ -11,7 +11,7 @@ base_url = "https://gilbertordx.github.io"
 
 # Short bio shown on the home page. Markdown. The full text is on /about/
 intro = """
-i started on the shop floor of markethouse at 18, moved into "orcamentista" and design 2d/3d design, my initial work there with spreadsheets is to this day used in "orcamentos" and "ordens de producao", and today i held authority over the mechanical design of all parts. those are my main accomplishments. now im studying security as my goal to work into the it industry. ill log along here.
+i started on the shop floor of markethouse at 18, moved into estimator and 2d/3d design. the spreadsheets and designs i first made there are still used today in "orcamentos" and "ordens de producao", and today i hold authority over the entire workflow of all parts, from development and mechanical design to shipping. those are my main accomplishments. now im studying security as my goal to work into the it industry. ill log along here.
 """
 
 # Markdown. Shown on /about/
