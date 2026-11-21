@@ -179,12 +179,15 @@ name = "tbjp-oracle"
 url = "https://github.com/gilbertordx/tbjp-oracle"
 year = "2026"
 summary = "A search interface that I built after discovering a forum breach."
-stack = ["Python", "LangChain", "Chroma"]
+stack = ["Rust"]
 
 [[projects]]
 name = "Markethouse PPC"
 year = "2026"
 summary = "Production planning and control system for manufactured mechanical parts. The goal is a lean production method with just-in-time and andon, concepts that originated in the Toyota Production System. The code is private."
+with_name = "Milena"
+with_url = "https://milena-portfolio-self.vercel.app/?lang=en"
+with_note = "a senior engineer. Working side by side with her has been a great boost"
 stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
 
 [[projects]]
@@ -202,13 +205,6 @@ summary = "Modular Terraform for static sites on S3 with encryption, least-privi
 stack = ["Terraform", "S3", "CloudFront", "LocalStack"]
 
 [[projects]]
-name = "inventor-ilogic-vb-automation"
-url = "https://github.com/gilbertordx/inventor-ilogic-vb-automation"
-year = "2025"
-summary = "Automation for Autodesk Inventor: description generation, batch processing and workflow orchestration for mechanical engineering projects."
-stack = ["VB.NET", "iLogic", "Autodesk Inventor"]
-
-[[projects]]
 name = "logbook"
 url = "https://github.com/gilbertordx/logbook"
 year = "2026"
@@ -216,24 +212,31 @@ summary = "Workout log that runs entirely in the browser: sets, reps, session ti
 stack = ["JavaScript", "ES modules", "No framework"]
 
 [[projects]]
+name = "inventor-ilogic-vb-automation"
+url = "https://github.com/gilbertordx/inventor-ilogic-vb-automation"
+year = "2025"
+summary = "Everyday work in progress. Currently leading and mentoring a mechanical engineering intern."
+stack = ["VB.NET", "iLogic", "Autodesk Inventor"]
+
+[[projects]]
 name = "rust-remaster"
 url = "https://github.com/gilbertordx/rust-remaster"
 year = "2026"
-summary = "Rust rewrites of tbjp-oracle, logbook and rhcp-chatbot, each checked against the original on identical inputs. The repo indexes the three remasters, the method and the results."
+summary = "My own projects rebuilt in Rust, to learn the language and to check that each new version behaves like the original."
 stack = ["Rust", "axum", "Leptos", "WebAssembly"]
 
 [[projects]]
 name = "sietch"
 url = "https://github.com/gilbertordx/sietch"
 year = "2026"
-summary = "Terminal menu that starts and opens my projects: pick one with the arrow keys or the mouse and it opens in the browser. Manages processes, readiness checks and updates from GitHub."
+summary = "A GitHub-CLI-style terminal interface: see all my apps in one place and open any of them with ease."
 stack = ["Rust", "ratatui"]
 
 [[projects]]
 name = "grdx"
 url = "https://github.com/gilbertordx/gilbertordx.github.io"
 year = "2026"
-summary = "This site. A static site generator in Rust that turns Markdown and one TOML file into a portfolio and log."
+summary = "Portfolio and log. A place to document my learning along the way and to give my work exposure."
 stack = ["Rust", "pulldown-cmark", "GitHub Actions"]
 
 [[projects]]
@@ -247,7 +250,7 @@ stack = ["Python", "SQLite"]
 name = "rhcp-chatbot"
 url = "https://github.com/gilbertordx/rhcp-chatbot"
 year = "2026"
-summary = "Trivia chatbot with intent classification, entity recognition and SQLite full-text search behind a FastAPI server. My first project."
+summary = "My first AI-driven project."
 stack = ["Python", "FastAPI", "SQLite FTS"]
 
 [[projects]]

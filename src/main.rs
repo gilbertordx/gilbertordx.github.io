@@ -113,6 +113,14 @@ struct Project {
     /// Set to mark a Rust remaster of this project, e.g. "planned" or "in progress".
     #[serde(default)]
     remaster: String,
+    /// Optional collaborator credit: "Built with <name>, <note>". Only for closed-source
+    /// cards, since the other cards are links themselves.
+    #[serde(default)]
+    with_name: String,
+    #[serde(default)]
+    with_url: String,
+    #[serde(default)]
+    with_note: String,
 }
 
 #[derive(Deserialize)]
@@ -326,6 +334,16 @@ fn project_card(p: &Project, idx: usize) -> String {
     if !p.remaster.is_empty() {
         stack += &format!(r#"<li class="remaster">Rust remaster: {}</li>"#, esc(&p.remaster));
     }
+    let credit = if p.with_name.is_empty() {
+        String::new()
+    } else {
+        format!(
+            r#"<p class="credit">Built with <a href="{}" rel="noopener" target="_blank">{}</a>{}</p>"#,
+            esc(&p.with_url),
+            esc(&p.with_name),
+            if p.with_note.is_empty() { String::new() } else { format!(", {}", esc(&p.with_note)) }
+        )
+    };
     let (open, close, go) = if p.url.is_empty() {
         (r#"<div class="panel card">"#.to_string(), "</div>", "Closed source")
     } else {
@@ -336,7 +354,7 @@ fn project_card(p: &Project, idx: usize) -> String {
         )
     };
     format!(
-        r#"{open}<div class="panel-in"><div class="panel-label"><span>// {idx:02}</span><i></i><span>{year}</span></div><h3>{name}</h3><p>{sum}</p><ul class="stack">{stack}</ul><span class="card-go">{go}</span></div>{close}"#,
+        r#"{open}<div class="panel-in"><div class="panel-label"><span>// {idx:02}</span><i></i><span>{year}</span></div><h3>{name}</h3><p>{sum}</p>{credit}<ul class="stack">{stack}</ul><span class="card-go">{go}</span></div>{close}"#,
         year = esc(&p.year),
         name = esc(&p.name),
         sum = esc(&p.summary),
@@ -461,11 +479,11 @@ fn build() -> Result<()> {
     }
     if !featured.is_empty() {
         body += &format!(
-            r#"<div class="section-head"><h2>Certificates</h2></div><ul class="creds">{featured}</ul>"#
+            r#"<div class="section-head"><h2>certificates</h2></div><ul class="creds">{featured}</ul>"#
         );
     }
     body += &format!(
-        r#"<div class="section-head"><h2>Tools</h2></div><div class="cards">{cards}</div>"#
+        r#"<div class="section-head"><h2>tools</h2></div><div class="cards">{cards}</div>"#
     );
     if !posts.is_empty() {
         body += &panel(
@@ -546,9 +564,9 @@ fn build() -> Result<()> {
         site.projects.iter().enumerate().map(|(i, p)| project_card(p, i + 1)).collect();
     let body = format!(
         r#"{}<div class="cards">{cards}</div>"#,
-        page_head("Work and studies", "Tools", "Things I have built and studied. Most link to their source code."),
+        page_head("Work and studies", "tools", "Things I have built and studied. Most link to their source code."),
     );
-    write("projects/index.html", &page(&site, "Tools", "Tools.", "projects", "/projects/", &body))?;
+    write("projects/index.html", &page(&site, "tools", "Tools.", "projects", "/projects/", &body))?;
 
     // About
     let mut body = page_head(&format!("{} // {}", site.role, site.location), "About", &site.tagline);
