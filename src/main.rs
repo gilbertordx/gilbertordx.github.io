@@ -113,14 +113,10 @@ struct Project {
     /// Set to mark a Rust remaster of this project, e.g. "planned" or "in progress".
     #[serde(default)]
     remaster: String,
-    /// Optional collaborator credit: "Built with <name>, <note>". Only for closed-source
+    /// Optional collaborator credit, Markdown (links allowed). Only for closed-source
     /// cards, since the other cards are links themselves.
     #[serde(default)]
-    with_name: String,
-    #[serde(default)]
-    with_url: String,
-    #[serde(default)]
-    with_note: String,
+    credit: String,
 }
 
 #[derive(Deserialize)]
@@ -334,15 +330,10 @@ fn project_card(p: &Project, idx: usize) -> String {
     if !p.remaster.is_empty() {
         stack += &format!(r#"<li class="remaster">Rust remaster: {}</li>"#, esc(&p.remaster));
     }
-    let credit = if p.with_name.is_empty() {
+    let credit = if p.credit.is_empty() {
         String::new()
     } else {
-        format!(
-            r#"<p class="credit">Built with <a href="{}" rel="noopener" target="_blank">{}</a>{}</p>"#,
-            esc(&p.with_url),
-            esc(&p.with_name),
-            if p.with_note.is_empty() { String::new() } else { format!(", {}", esc(&p.with_note)) }
-        )
+        format!(r#"<div class="credit">{}</div>"#, markdown(&p.credit))
     };
     let (open, close, go) = if p.url.is_empty() {
         (r#"<div class="panel card">"#.to_string(), "</div>", "Closed source")

@@ -185,9 +185,7 @@ stack = ["Rust", "axum", "Python"]
 name = "Markethouse PPC"
 year = "2026"
 summary = "Production planning and control system for manufactured mechanical parts. The goal is a lean production method with just-in-time and andon, concepts that originated in the Toyota Production System. The code is private."
-with_name = "Milena"
-with_url = "https://milena-portfolio-self.vercel.app/?lang=en"
-with_note = "a senior engineer. Working side by side with her has been a great boost"
+credit = "Initially built and planned with [José](https://www.linkedin.com/in/joserpfilho/), now with [Milena](https://milena-portfolio-self.vercel.app/?lang=en) in charge. Learning directly from experienced engineers."
 stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
 
 [[projects]]
