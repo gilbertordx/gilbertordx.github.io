@@ -185,8 +185,8 @@ items = ["Autodesk Inventor", "iLogic", "CAD automation"]
 name = "tbjp-oracle"
 url = "https://github.com/gilbertordx/tbjp-oracle"
 year = "2026"
-summary = "Search and RAG interface over a scraped forum archive, with keyword and semantic retrieval and an experimental local-model mode."
-stack = ["Python", "LangChain", "Chroma", "Streamlit"]
+summary = "Search and RAG interface over a scraped forum archive, with keyword and semantic retrieval and an experimental local-model mode. Also rebuilt in Rust (axum), checked against the Python version on identical data."
+stack = ["Rust", "axum", "Python", "LangChain", "Chroma", "Streamlit"]
 
 [[projects]]
 name = "Markethouse PPC"
@@ -219,8 +219,15 @@ stack = ["VB.NET", "iLogic", "Autodesk Inventor"]
 name = "logbook"
 url = "https://github.com/gilbertordx/logbook"
 year = "2026"
-summary = "Workout log that runs entirely in the browser: sets, reps, session timer, Garmin metrics, Spotify controls and backups synced to GitHub."
-stack = ["JavaScript", "ES modules", "No framework"]
+summary = "Workout log that runs entirely in the browser: sets, reps, session timer and backups synced to GitHub. The JavaScript original also has Garmin metrics and Spotify controls; the Rust and WebAssembly remaster (Leptos) covers the core log."
+stack = ["Rust", "Leptos", "WebAssembly", "JavaScript"]
+
+[[projects]]
+name = "launchpad"
+url = "https://github.com/gilbertordx/launchpad"
+year = "2026"
+summary = "Terminal menu that starts and opens my projects: pick one with the arrow keys or the mouse and it opens in the browser. Manages processes, readiness checks and updates from GitHub."
+stack = ["Rust", "ratatui"]
 
 [[projects]]
 name = "grdx"
@@ -240,8 +247,8 @@ stack = ["Python", "SQLite"]
 name = "rhcp-chatbot"
 url = "https://github.com/gilbertordx/rhcp-chatbot"
 year = "2026"
-summary = "Trivia chatbot with intent classification, entity recognition and SQLite full-text search behind a FastAPI server. My first project."
-stack = ["Python", "FastAPI", "SQLite FTS"]
+summary = "Trivia chatbot with intent classification, entity recognition and SQLite full-text search behind a FastAPI server. My first project. The Rust remaster re-implements the NLP stack and matches the Python model to about 1e-15."
+stack = ["Rust", "axum", "Python", "FastAPI", "SQLite FTS"]
 
 [[projects]]
 name = "log"
