@@ -223,6 +223,13 @@ summary = "Workout log that runs entirely in the browser: sets, reps, session ti
 stack = ["JavaScript", "ES modules", "No framework"]
 
 [[projects]]
+name = "rust-remaster"
+url = "https://github.com/gilbertordx/rust-remaster"
+year = "2026"
+summary = "Rust rewrites of tbjp-oracle, logbook and rhcp-chatbot, each checked against the original on identical inputs. The repo indexes the three remasters, the method and the results."
+stack = ["Rust", "axum", "Leptos", "WebAssembly"]
+
+[[projects]]
 name = "launchpad"
 url = "https://github.com/gilbertordx/launchpad"
 year = "2026"
