@@ -187,7 +187,6 @@ name = "Markethouse PPC"
 year = "2026"
 summary = "Production planning and control system for manufactured mechanical parts. The goal is a lean production method with just-in-time and andon, concepts that originated in the Toyota Production System. The code is private."
 stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
-remaster = "planned"
 
 [[projects]]
 name = "devsecops-pipeline"
@@ -209,7 +208,6 @@ url = "https://github.com/gilbertordx/inventor-ilogic-vb-automation"
 year = "2025"
 summary = "Automation for Autodesk Inventor: description generation, batch processing and workflow orchestration for mechanical engineering projects."
 stack = ["VB.NET", "iLogic", "Autodesk Inventor"]
-remaster = "planned"
 
 [[projects]]
 name = "logbook"
