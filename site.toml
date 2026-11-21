@@ -223,6 +223,13 @@ summary = "Workout log that runs entirely in the browser: sets, reps, session ti
 stack = ["JavaScript", "ES modules", "No framework"]
 
 [[projects]]
+name = "launchpad"
+url = "https://github.com/gilbertordx/launchpad"
+year = "2026"
+summary = "Terminal menu that starts and opens my projects: pick one with the arrow keys or the mouse and it opens in the browser. Manages processes, readiness checks and updates from GitHub."
+stack = ["Rust", "ratatui"]
+
+[[projects]]
 name = "grdx"
 url = "https://github.com/gilbertordx/gilbertordx.github.io"
 year = "2026"
