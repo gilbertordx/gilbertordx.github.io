@@ -175,12 +175,6 @@ items = ["Autodesk Inventor", "iLogic", "CAD automation"]
 # Ordered by importance. Leave `url` out for closed-source work.
 
 [[projects]]
-name = "launchpad"
-year = "2026"
-summary = "A control system over my repos, to start and test them all from one place on my PC."
-stack = ["Rust"]
-
-[[projects]]
 name = "tbjp-oracle"
 url = "https://github.com/gilbertordx/tbjp-oracle"
 year = "2026"
