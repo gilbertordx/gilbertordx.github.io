@@ -185,14 +185,14 @@ stack = ["TypeScript", "NestJS", "React", "PostgreSQL", "Prisma", "Playwright"]
 name = "devsecops-pipeline"
 url = "https://github.com/gilbertordx/devsecops-pipeline"
 year = "2026"
-summary = "My earliest experiment with cloud tools."
+summary = "My earliest experiment with cloud tools: Terraform, AWS and a CI/CD pipeline."
 stack = ["Terraform", "AWS ECR", "Go", "CI/CD"]
 
 [[projects]]
 name = "terraform-s3-static-site"
 url = "https://github.com/gilbertordx/terraform-s3-static-site"
 year = "2026"
-summary = "Another early experiment with cloud tools."
+summary = "Another early experiment with cloud tools: a static site on AWS, built with Terraform."
 stack = ["Terraform", "S3", "CloudFront", "LocalStack"]
 
 [[projects]]
