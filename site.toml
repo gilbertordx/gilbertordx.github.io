@@ -217,8 +217,8 @@ summary = "My own projects rebuilt in Rust, to learn the language and to check t
 stack = ["Rust", "axum", "Leptos", "WebAssembly"]
 
 [[projects]]
-name = "sietch"
-url = "https://github.com/gilbertordx/sietch"
+name = "ixian"
+url = "https://github.com/gilbertordx/ixian"
 year = "2026"
 summary = "A GitHub-CLI-style terminal interface: see all my apps in one place and open any of them with ease."
 stack = ["Rust", "ratatui"]
